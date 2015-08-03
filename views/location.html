@@ -1,0 +1,30 @@
+<div id="header-wrapper" ng-include="'views/common/header.html'" class="animated fadeInDown"></div>
+<div id="footer-wrapper" ng-include="'views/common/footer.html'" class="animated fadeInUp"></div>
+<div class="page-content-no-padding animated fadeInRight" id="location" ng-controller="LocationCtrl as controller">
+    
+    <div id="map-2d" ng-if="controller.tabIndex==0" class="animated fadeIn">
+        <div id="map-2d-street">
+            <img class="img-responsive full-width" src="img/location-2d-map@2x.png">
+        </div>    
+        
+        <div id="map-2d-desc">
+            <img id="map-2d-desc-away" class="img-responsive full-width" src="img/location-2d-map-desc1@2x.png">
+            <img class="img-responsive full-width" src="img/location-2d-map-desc2@2x.png">
+        </div>
+    </div>
+    <div id="map-google" ng-if="controller.tabIndex==1" class="animated fadeIn">
+        <iframe id='map' width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDwzM42cKPYaZ-NkqPkiVsu1_VJ7UIcHfg&q=3.1349111,101.5371">
+        </iframe>
+    </div>
+    
+    <div class="tab-btns">
+        <ul>
+            <li>
+                <a ng-click="controller.tabIndex = 1;">GOOGLE MAP</a>
+            </li>
+            <li>
+                <a ng-click="controller.tabIndex = 0;">2D MAP</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,701 @@
+// out: ../css/main.css, compress:false, strictMath:false
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+@content-padding-xsm: 5px;
+@content-padding-sm: 10px;
+@content-padding: 20px;
+@content-padding-lg: 40px;
+@container-padding: 20px;
+@container-padding-lg: 40px;
+@container-padding-xlg: 70px;
+@container-padding-xxlg: 100px;
+@bower_components_path: '../bower_components';
+@bootstrap_less_path: "@{bower_components_path}/bootstrap/less";
+/* ==========================================================================
+   Bootstrap Customize Less
+   ========================================================================== */
+
+@import "variables.less";
+@import "@{bootstrap_less_path}/mixins.less";
+// Reset and dependencies
+@import "@{bootstrap_less_path}/normalize.less";
+@import "@{bootstrap_less_path}/print.less";
+@import "@{bootstrap_less_path}/glyphicons.less";
+// Core CSS
+@import "@{bootstrap_less_path}/scaffolding.less";
+@import "@{bootstrap_less_path}/type.less";
+@import "@{bootstrap_less_path}/code.less";
+@import "@{bootstrap_less_path}/grid.less";
+@import "@{bootstrap_less_path}/tables.less";
+@import "@{bootstrap_less_path}/forms.less";
+@import "@{bootstrap_less_path}/buttons.less";
+// Components
+@import "@{bootstrap_less_path}/component-animations.less";
+@import "@{bootstrap_less_path}/dropdowns.less";
+@import "@{bootstrap_less_path}/button-groups.less";
+@import "@{bootstrap_less_path}/input-groups.less";
+@import "@{bootstrap_less_path}/navs.less";
+@import "@{bootstrap_less_path}/navbar.less";
+@import "@{bootstrap_less_path}/breadcrumbs.less";
+@import "@{bootstrap_less_path}/pagination.less";
+@import "@{bootstrap_less_path}/pager.less";
+@import "@{bootstrap_less_path}/labels.less";
+@import "@{bootstrap_less_path}/badges.less";
+@import "@{bootstrap_less_path}/jumbotron.less";
+@import "@{bootstrap_less_path}/thumbnails.less";
+@import "@{bootstrap_less_path}/alerts.less";
+@import "@{bootstrap_less_path}/progress-bars.less";
+@import "@{bootstrap_less_path}/media.less";
+@import "@{bootstrap_less_path}/list-group.less";
+@import "@{bootstrap_less_path}/panels.less";
+@import "@{bootstrap_less_path}/responsive-embed.less";
+@import "@{bootstrap_less_path}/wells.less";
+@import "@{bootstrap_less_path}/close.less";
+// Components w/ JavaScript
+@import "@{bootstrap_less_path}/modals.less";
+@import "@{bootstrap_less_path}/tooltip.less";
+@import "@{bootstrap_less_path}/popovers.less";
+@import "@{bootstrap_less_path}/carousel.less";
+// Utility classes
+@import "@{bootstrap_less_path}/utilities.less";
+@import "@{bootstrap_less_path}/responsive-utilities.less";
+/* ==========================================================================
+   Helper
+   ========================================================================== */
+
+//For editing only
+//* {
+//    transition: all 0.3s;
+//}
+/* ==========================================================================
+   Main Layout
+   ========================================================================== */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+body {
+    //    overflow-y: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+li {}
+
+.vertical-center-container {
+    position: relative;
+}
+
+.vertical-center-content {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.nowrap {
+    display: inline-block;
+}
+
+.responsive-container {
+    position: relative;
+    >canvas:first-child {
+        position: relative;
+        width: 100%;
+        height: auto;
+        z-index: 1;
+    }
+    >.responsive-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+}
+
+.circle {
+    border-radius: 50%;
+    /* width and height can be anything, as long as they're equal */
+}
+/* scroll fixes */
+
+.modal-open .modal {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    overflow-y: scroll;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: @color-bg-dark;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+    color: @color-text-light;
+}
+
+small {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+[type=submit] {
+    background-color: @color-btn-bg;
+    color: @color-btn-text;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+    border: none;
+    &:hover {
+        background-color: ligthen(@color-btn-bg, 5%);
+    }
+}
+
+[type=reset] {
+    background-color: transparent;
+    color: @color-btn-text-gray;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    &:hover {
+        background-color: transparent;
+    }
+}
+
+a.link-dark {
+    color: @color-link-dark;
+    &:hover {
+        color: @color-link-dark-hover;
+    }
+}
+
+.full-width-height {
+    width:100%;
+    height:100%;
+}
+
+
+.full-width {
+    width:100%;   
+}
+
+address>span{
+    display:inline-block;
+}
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.radio-inline,
+.checkbox-inline {
+    &:not(last-child) {
+        margin-left: 0 !important;
+        margin-right: 10px !important;
+    }
+    &:last-child {
+        margin-right: 0 !important;
+    }
+}
+
+form div.radio {
+    display: block;
+    @media screen and (min-width: @screen-md-min) {
+        display: inline-block;
+        width: auto;
+    }
+}
+
+.select2-container {
+    width: 100% !important;
+}
+/* ==========================================================================
+   Bootstrap Validator
+   ========================================================================== */
+
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline,
+.has-error.radio label,
+.has-error.checkbox label,
+.has-error.radio-inline label,
+.has-error.checkbox-inline label {
+    color: @brand-danger;
+}
+
+.has-success .help-block,
+.has-success .control-label,
+.has-success .radio,
+.has-success .checkbox,
+.has-success .radio-inline,
+.has-success .checkbox-inline,
+.has-success.radio label,
+.has-success.checkbox label,
+.has-success.radio-inline label,
+.has-success.checkbox-inline label {
+    color: @brand-success;
+}
+
+.has-error .form-control-feedback {
+    color: @brand-danger;
+}
+
+.has-success .form-control-feedback {
+    color: @brand-success;
+}
+
+
+/* ==========================================================================
+    sidebar and content
+   ========================================================================== */
+
+@sidebar-break-width-lg: @screen-lg-min; // 1200
+@sidebar-break-height-lg: 768px; //768
+@sidebar-break-width-md: @screen-md-min; //992
+@sidebar-break-height-md: 600px; //768
+//for width > 1200 and height > 992
+@sidebar-width-lg: 262px;
+@page-content-top-lg: @sidebar-width-lg/2;
+@page-content-bottom-lg: @sidebar-width-lg/2;
+@page-content-right-lg: @sidebar-width-lg;
+@header-top-lg: 60px;
+@footer-bottom-lg: 30px;
+//for width 992 ~ 1200
+@sidebar-width-md: 150px;
+@page-content-top-md: @sidebar-width-md * 0.4;
+@page-content-bottom-md: @sidebar-width-md * 0.43;
+@page-content-right-md: @sidebar-width-md * 0.4;
+@header-top-md: 0px;
+@footer-bottom-md: 20px;
+#wrapper {
+    padding-left: 0;
+    @media screen and(min-width: @sidebar-break-width-md) and(min-height: @sidebar-break-height-md) {
+        padding-left: @sidebar-width-md;
+    }
+    @media screen and(min-width: @sidebar-break-width-lg) and(min-height: @sidebar-break-height-lg) {
+        padding-left: @sidebar-width-lg;
+    }
+    transition: padding-left 0.5s;
+}
+
+#sidebar-wrapper {
+    overflow-x: hidden;
+    height: 100%;
+    background-color: @color-bg-dark;
+    position: fixed;
+    z-index: 9999;
+    left: @sidebar-width-lg;
+    margin-left: -@sidebar-width-lg;
+    width: 0;
+    @media screen and(min-width: @sidebar-break-width-md) and(min-height: @sidebar-break-height-md) {
+        width: @sidebar-width-md;
+        left: @sidebar-width-md;
+        margin-left: -@sidebar-width-md;
+    }
+    @media screen and (min-width: @sidebar-break-width-lg) and(min-height: @sidebar-break-height-lg) {
+        width: @sidebar-width-lg;
+        left: @sidebar-width-lg;
+        margin-left: -@sidebar-width-lg;
+    }
+    transition: width 0.5s;
+    #sidebar-nav {
+        position: absolute;
+        top: 0;
+        @media screen and(min-width: @sidebar-break-width-md) and(min-height: @sidebar-break-height-md) {
+            width: @sidebar-width-md;
+        }
+        @media screen and (min-width: @sidebar-break-width-lg) and(min-height: @sidebar-break-height-lg) {
+            width: @sidebar-width-lg;
+        }
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+            padding-top: 14px;
+            padding-bottom: 14px;
+            font-size: @color-nav-link-text-size;
+            .text-center;
+            width: 100%;
+            a {
+                display: block;
+                color: @color-nav-link-text;
+                cursor: pointer;
+                transition: color 0.3s ease-out;
+                .underline {
+                    margin: 0 auto;
+                    width: 114px;
+                    height: 7px;
+                    background-image: none;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-image: url(../img/nav_active_underline.png);
+                    
+                    transition:opacity 0.1s ease-out;
+                    opacity:0;
+                }
+            }
+            &.active,
+            &:hover {
+                a {
+                    text-decoration: none;
+                    color:@color-nav-link-hover;
+                    .underline {
+                        opacity:1;
+                    }
+                }
+            }
+        }
+        .sidebar-brand {
+            width: 70%;
+            @media screen and(min-width: @sidebar-break-width-md) and(min-height: @sidebar-break-height-md) {
+                width: @sidebar-width-md * 0.7;
+            }
+            @media screen and (min-width: @sidebar-break-width-lg) and(min-height: @sidebar-break-height-lg) {
+                width: @sidebar-width-lg * 0.7;
+            }
+            margin: 33px auto 14px auto;
+        }
+    }
+}
+
+#page-content-wrapper {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/wrapper-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 3;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    position: absolute;
+    @media screen and(min-width: @sidebar-break-width-md) and(min-height: @sidebar-break-height-md) {
+        padding-top: @page-content-top-md;
+        padding-right: @page-content-right-md;
+        padding-bottom: @page-content-bottom-md;
+        position: relative;
+    }
+    @media screen and (min-width: @sidebar-break-width-lg) and(min-height: @sidebar-break-height-lg) {
+        padding-top: @page-content-top-lg;
+        padding-right: @page-content-right-lg;
+        padding-bottom: @page-content-bottom-lg;
+        position: relative;
+    }
+    #header-wrapper {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        display: none;
+        @media screen and(min-width: @sidebar-break-width-md) and(min-height: @sidebar-break-height-md) {
+            display: block;
+            padding-right: @page-content-top-md;
+            top: @header-top-md;
+        }
+        @media screen and (min-width: @sidebar-break-width-lg) and(min-height: @sidebar-break-height-lg) {
+            padding-right: @page-content-top-lg;
+            top: @header-top-lg;
+        }
+    }
+    #footer-wrapper {
+        position: absolute;
+        display: none;
+        @media screen and(min-width: @sidebar-break-width-md) and(min-height: @sidebar-break-height-md) {
+            display: block;
+            bottom: @footer-bottom-md;
+        }
+        @media screen and (min-width: @sidebar-break-width-lg) and(min-height: @sidebar-break-height-lg) {
+            bottom: @footer-bottom-lg;
+        }
+        left: 28px;
+        color: @color-btn-text-gray;
+        font-size: 12px;
+    }
+}
+
+.page-content-padding() {
+    padding: 25px 16px;
+    @media screen and (min-width: @screen-md-min) {
+        padding: 25px 45px;
+    }
+}
+.page-content {
+    position:relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: @color-bg-light;
+    .full-width-height;
+    .page-content-padding();
+}
+
+.page-content-no-padding {
+    position:relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: @color-bg-light;
+    .full-width-height;
+    padding:0;
+}
+
+.content-sidebar-wrapper {
+    .clearfix();
+    .content-left-content {
+        width:100%;
+        float:left;
+        
+        
+        
+        @media screen and (min-width:@screen-md-min) {
+            padding-right:230px;
+            margin-right:-230px;
+            min-height:100%;
+        }
+    }
+
+    .content-right-sidebar {
+
+        background-color:@color-bg-light;
+        color:@color-text-btn-text;
+        font-size:12px;
+        float:left;
+        line-height:1.1em;
+        a {
+            color:@color-text-btn-text;
+        }
+        
+        h7 {
+            font-size:14px;   
+        }
+        
+        padding:20px 20px 20px 20px;
+        width:100%;
+        @media screen and (min-width:@screen-md-min) {
+            padding:40px 20px 20px 20px;
+            width:230px;
+            min-height:100%;
+        }
+    }
+    
+}
+
+/* ==========================================================================
+   ng-animate
+   ========================================================================== */
+
+
+/* ==========================================================================
+   tab buttons
+   ========================================================================== */
+.tab-btns {
+    .text-right;
+    li {
+        display:inline;
+        a {
+            color:@color-text-btn-text;   
+            cursor:pointer;
+
+            &:hover, &.active {
+                color: ligthen(@color-text-btn-text, 15%);  
+            }
+        }
+
+        &:not(:last-child)::after {
+            color:@color-text-btn-text;   
+            margin-left:@content-padding-sm;
+            margin-right:@content-padding-sm;
+            content:' | ';   
+        }
+    }
+}
+
+/* ==========================================================================
+   Carousel
+   ========================================================================== */
+.carousel {
+    height: 100%;
+    .carousel-inner {
+        height: 100%;
+    }
+    .item {
+        height: 100%;
+    }
+}
+/* ==========================================================================
+   Page Layout
+   ========================================================================== */
+#home {
+    padding:0;
+    #home-slide-1 {
+        background-image:url(../img/home-slide-01@2x.jpg);
+        background-size:cover;
+        background-position:50% 100%;
+    }
+}
+
+#project-overview {
+    padding:0;
+    #project-overview-slide-1 {
+        background-image:url(../img/project-overview-slide-01.jpg);
+        background-size:cover;
+        background-position:50% 50%;
+        overflow:hidden;
+        position:relative;
+    }
+    #project-overview-slide-1-text {
+        background-image:url(../img/project-overview-slide-01-text@2x.jpg);
+        background-size:contain;
+        background-repeat: no-repeat;
+        min-width:40%;
+        width:450px;
+        height:100%;
+        margin-top:4%;
+        left:-2%;
+        position:relative;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+#registration {
+    .tnc-group {
+        small {
+            display: block;
+            line-height: 16px;
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+#location {
+    .tab-btns {
+        position:absolute;
+        top: 25px;
+        right:16px;
+        @media screen and (min-width: @screen-md-min) {
+            top: 25px;
+            right: 45px;
+        }
+    }
+    
+    
+    #map-2d {
+        padding-top:@container-padding/2;
+        @media screen and (min-width:@screen-sm-min){
+            padding-top:@container-padding-lg/2;
+        }
+        @media screen and (min-width:@screen-md-min){
+            padding-top:@container-padding-xlg/2;
+        }
+        @media screen and (min-width:@screen-lg-min){
+            padding-top:@container-padding-xxlg/2;
+        }
+        
+        
+        .clearfix();
+        
+        
+        
+        #map-2d-street {
+            float:left;
+
+            width:90%; 
+            margin-left:5%;
+            margin-right:5%;
+            
+
+            margin-top:50px;
+            @media screen and (min-width:@screen-md-min){
+                margin-top:2%;
+            }
+            
+            @media screen and (min-width:@screen-lg-min){
+                width:55%; 
+                margin-left:8%;
+                margin-right:6%;
+                margin-top:2%;
+            }
+            
+            img {
+                margin-top:6%;   
+            }
+        }
+        
+        
+        #map-2d-desc {
+            float:left;
+            
+            width:50%; 
+            margin-left:25%;
+            margin-right:25%;
+            
+            
+            @media screen and (min-width:@screen-lg-min){
+                margin-left:0;
+                margin-right:0;
+                width:19%;
+            }
+            
+            
+            #map-2d-desc-away {
+                margin-top:6%;
+                margin-bottom:12%;
+            }
+        }
+    }
+    
+    #map-google {
+        height:100%;
+    }
+}
+
+#contact {
+    #map-google {
+        height:100%;
+        iframe {
+            height:100%;   
+        }
+    }
+    .content-right-sidebar {
+        
+    }
+}
