@@ -5,6 +5,7 @@
 
 @content-padding-xsm: 5px;
 @content-padding-sm: 10px;
+@content-padding-md: 15px;
 @content-padding: 20px;
 @content-padding-lg: 40px;
 @container-padding: 20px;
@@ -209,10 +210,27 @@ a.link-dark {
 .full-width {
     width:100%;   
 }
+.full-height {
+    height:100%;   
+}
 
 address>span{
     display:inline-block;
 }
+
+//#video-background { 
+//  position: absolute;
+//  bottom: 50%; 
+//  right: 50%;
+//  -webkit-transform: translateX(-50%) translateY(-50%);
+//  transform: translateX(-50%) translateY(-50%);
+//  min-width: 100%; 
+//  min-height: 100%; 
+//  width: auto; 
+//  height: auto;
+//  z-index: -1000; 
+//  overflow: hidden;
+//}
 
 /* ==========================================================================
    Form
@@ -349,22 +367,25 @@ form div.radio {
         padding: 0;
         list-style: none;
         li {
-            padding-top: 14px;
-            padding-bottom: 14px;
-            font-size: @color-nav-link-text-size;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            font-size: @color-nav-link-text-size * 1.05;
             .text-center;
             width: 100%;
-            a {
+            >a {
+                line-height: 1.6em;
                 display: block;
                 color: @color-nav-link-text;
                 cursor: pointer;
                 transition: color 0.3s ease-out;
+                padding-bottom:0px;
                 .underline {
                     margin: 0 auto;
                     width: 114px;
-                    height: 7px;
+                    height: 6px;
                     background-image: none;
                     background-size: contain;
+                    background-position:center;
                     background-repeat: no-repeat;
                     background-image: url(../img/nav_active_underline.png);
                     
@@ -374,7 +395,7 @@ form div.radio {
             }
             &.active,
             &:hover {
-                a {
+                >a {
                     text-decoration: none;
                     color:@color-nav-link-hover;
                     .underline {
@@ -475,6 +496,48 @@ form div.radio {
     padding:0;
 }
 
+.content-left-sidebar-wrapper {
+    .clearfix();
+    .content-left-sidebar {
+        background-color:@color-sidebar-bg;
+        color:@color-text-brown;
+        font-size:12px;
+        float:left;
+        line-height:1.3em;
+        a {
+            color:@color-text-brown;
+        }
+        
+        address {
+            line-height:1.3em;   
+        }
+        
+        h7 {
+            color:@color-text-dark-brown;
+            font-size:14px;   
+        }
+        
+        width:100%;
+        @media screen and (min-width:@screen-md-min) {
+            width:230px;
+            min-height:100%;
+            margin-right:-230px;
+        }
+    }
+
+    .content-right-content {
+        width:100%;
+        float:left;
+        @media screen and (min-width:@screen-md-min) {
+            padding-left:230px;
+            min-height:100%;
+            height:100%;
+        }
+
+    }
+    
+}
+
 .content-sidebar-wrapper {
     .clearfix();
     .content-left-content {
@@ -493,22 +556,27 @@ form div.radio {
     .content-right-sidebar {
 
         background-color:@color-bg-light;
-        color:@color-text-btn-text;
+        color:@color-text-brown;
         font-size:12px;
         float:left;
-        line-height:1.1em;
+        line-height:1.3em;
         a {
-            color:@color-text-btn-text;
+            color:@color-text-brown;
+        }
+        
+        address {
+            line-height:1.3em;   
         }
         
         h7 {
+            color:@color-text-dark-brown;
             font-size:14px;   
         }
         
-        padding:20px 20px 20px 20px;
+        //padding:20px 20px 20px 20px;
         width:100%;
         @media screen and (min-width:@screen-md-min) {
-            padding:40px 20px 20px 20px;
+//            padding:40px 20px 20px 20px;
             width:230px;
             min-height:100%;
         }
@@ -557,6 +625,10 @@ form div.radio {
     .item {
         height: 100%;
     }
+    
+    .carousel-control.left, .carousel-control.right {
+        background-image:none;   
+    }
 }
 /* ==========================================================================
    Page Layout
@@ -564,16 +636,16 @@ form div.radio {
 #home {
     padding:0;
     #home-slide-1 {
-        background-image:url(../img/home-slide-01@2x.jpg);
+        background-image:url(../img/home-slide-02@2x.jpg);
         background-size:cover;
-        background-position:50% 100%;
+        //background-position:50% 100%;
+        background-position:50% 90%;
     }
 }
 
 #project-overview {
-    padding:0;
     #project-overview-slide-1 {
-        background-image:url(../img/project-overview-slide-01.jpg);
+        background-image:url(../img/project-overview-slide-01@1x.jpg);
         background-size:cover;
         background-position:50% 50%;
         overflow:hidden;
@@ -586,11 +658,106 @@ form div.radio {
         min-width:40%;
         width:450px;
         height:100%;
-        margin-top:4%;
-        left:-2%;
+        margin-top:1.5%;
+        left:-4%;
         position:relative;
         margin-left:auto;
         margin-right:auto;
+    }
+}
+
+#project-floorplan {
+    
+    .type-select {
+        font-size:18px;
+        line-height:22px;
+        position:absolute; 
+        bottom:20px; 
+        left:150px;
+    }
+    
+    .content-left-sidebar {
+        img {
+            float:none;
+            
+            width:230px;
+            margin-top:0px;
+            margin-bottom:0px;
+            margin-left:auto; margin-right:auto;
+            @media screen and (min-width:@screen-md-min) {
+                float:right;
+                width:80%;
+                margin-top:30px;
+                margin-bottom:30px;
+                
+            }
+        }
+    }
+    .carousel {
+        
+        .left.carousel-control, .right.carousel-control {
+            span  {
+                color:@color-bg-dark; 
+                bottom:33px;
+                top:initial  !important;
+            }
+        }
+        
+        .carousel-indicators li {
+            border-color:@color-bg-dark;   
+        }
+        .carousel-indicators .active {
+            background-color:@color-bg-dark;   
+        }
+        
+        //padding:40px;
+        .floorplan-wrapper {
+            float:left;
+            text-align:center;
+           
+            height:100%;
+            
+
+            a {
+                display:block;width:100%;height:100%;
+                img {
+                    margin:0 auto;
+                    @media screen and (min-width:@screen-md-min) {
+                        .vertical-center-content;   
+                    }
+                }
+            }
+            
+            padding:60px;
+            width:100%;
+            @media screen and (min-width:@screen-sm-min) {
+                padding:20px;   
+                 width:100%;
+            }
+            @media screen and (min-width:@screen-md-min) {
+                padding:0px;   
+                 &.floorplan-wrapper-1 {
+                    width:36.94%;   
+                 }
+                 &.floorplan-wrapper-2 {
+                    width:31.82%;   
+                 }
+                 &.floorplan-wrapper-3 {
+                    width:31.23%;   
+                 }
+            }
+            @media screen and (min-width:@screen-lg-min) {
+                padding:0px;   
+            }
+            @media screen and (min-width:1600px) {
+                padding:0px;   
+            }
+            
+            
+        }
+    }
+    .item>.ng-scope {
+        height:100%;
     }
 }
 
@@ -607,6 +774,8 @@ form div.radio {
 }
 
 #location {
+    background-color:#D5C7B4;
+    
     .tab-btns {
         position:absolute;
         top: 25px;
@@ -645,18 +814,18 @@ form div.radio {
 
             margin-top:50px;
             @media screen and (min-width:@screen-md-min){
-                margin-top:2%;
+                margin-top:0%;
             }
             
             @media screen and (min-width:@screen-lg-min){
                 width:55%; 
                 margin-left:8%;
                 margin-right:6%;
-                margin-top:2%;
+                margin-top:0%;
             }
             
             img {
-                margin-top:6%;   
+                margin-top:1%;   
             }
         }
         
@@ -688,14 +857,140 @@ form div.radio {
     }
 }
 
+.contact-content-right-sidebar-padding {
+    padding-left:15px;
+    padding-right:27px;
+}
+
 #contact {
-    #map-google {
-        height:100%;
-        iframe {
-            height:100%;   
+    .content-left-content {
+        .responsive-container{
+            width:auto;
+            height:auto;
+            canvas {
+                height:750px;
+                width:583px;
+            }
+        }
+        
+        @media screen and (min-width:@screen-md-min) {
+            height:100%;
+            .responsive-container{
+                width:100%;
+                height:100%;
+                canvas {
+                    height:100%;
+                    width:100%;
+                }
+            }
         }
     }
+    
     .content-right-sidebar {
+        padding-top:@container-padding-lg/2;
         
+        h7 {
+            .contact-content-right-sidebar-padding;
+            margin-bottom:@content-padding-xsm;
+            display:block;
+        }
+        .coordinate {
+            margin-bottom:@content-padding-sm/2;
+            .title {
+                color:@color-bg-light;
+                background-color:@color-text-brown;
+                .contact-content-right-sidebar-padding;
+                margin-bottom:@content-padding-xsm;
+                padding-bottom:@content-padding-xsm;
+                padding-top:@content-padding-xsm;
+            }
+
+            .desc {
+                .contact-content-right-sidebar-padding;
+                margin-bottom:@content-padding-xsm;
+            }
+        }
+        >address {
+            display:block;
+            .contact-content-right-sidebar-padding;
+            margin-bottom:@content-padding-xsm;
+            span {
+                display:block;
+            }
+        }
+        .openhour {
+            display:block;
+            margin-bottom:@content-padding-sm/2;
+            .contact-content-right-sidebar-padding;
+        }
+        .tel {
+            display:block;   
+            //.contact-content-right-sidebar-padding;
+        }
+
+        .separator {
+            .contact-content-right-sidebar-padding;
+            margin-bottom:@content-padding-sm;
+            margin-top:@content-padding-sm;
+            hr {
+                background-color: @color-text-brown;
+                border-top:1px solid @color-text-brown;
+                margin:0;
+            }
+        }
+
+        .developer {
+            display:block;
+            .contact-content-right-sidebar-padding;
+            address {
+                display:block;
+                span {
+                    display:block;
+                }
+                
+                small {
+                    font-size:0.8em;   
+                }
+            }
+        }
+        
+        @media screen and (min-width:@screen-md-min) {
+            padding-top:@container-padding-lg;
+            h7 {
+                .contact-content-right-sidebar-padding;
+                margin-bottom:@content-padding-xsm;
+            }
+            .coordinate {
+                margin-bottom:@content-padding-sm;
+                .title {
+                    .contact-content-right-sidebar-padding;
+                }
+
+                .desc {
+                    .contact-content-right-sidebar-padding;
+                    margin-bottom:@content-padding-xsm;
+                }
+            }
+            >address {
+                .contact-content-right-sidebar-padding;
+            }
+            .openhour {
+                margin-bottom:@content-padding-sm;
+                .contact-content-right-sidebar-padding;
+            }
+            .tel {
+                .contact-content-right-sidebar-padding;
+            }
+
+            .separator {
+                .contact-content-right-sidebar-padding;
+                margin-bottom:@content-padding-sm;
+                margin-top:@content-padding-sm;
+            }
+
+            .developer {
+                .contact-content-right-sidebar-padding;
+            }
+        }
     }
 }

@@ -1,1 +1,27 @@
-floorplan
+<div class="page-content-no-padding animated fadeInRight content-left-sidebar-wrapper" id="project-floorplan" ng-controller="ProjectFloorplanCtrl as controller">
+    <div class="content-left-sidebar">
+        <img class="img-responsive" ng-src="{{controller.sidebarimg()}}" >
+        <div class="type-select" style="">
+            <div ng-repeat="slide in controller.slides"><a href="javascript:void(0)" ng-click="controller.selectSlide($index)">Type {{slide.type}}</a></div>
+        </div>
+    </div>
+    <div class="content-right-content">
+        <div id="carousel-example-generic2" class="carousel" data-ride="carousel">
+            <carousel interval="-1" no-wrap="false">
+                <slide ng-repeat="slide in controller.slides" active="slide.active">
+                    <div class="">
+                        <div class="floorplan-wrapper floorplan-wrapper-1">
+                            <a class="fancybox" ng-href="{{slide.imgs[0]}}"><img class="img-responsive" ng-src="{{slide.imgs[0]}}"></a>
+                        </div>
+                        <div class="floorplan-wrapper floorplan-wrapper-2">
+                            <a class="fancybox" ng-href="{{slide.imgs[0]}}"><img class="img-responsive" ng-src="{{slide.imgs[1]}}"></a>
+                        </div>
+                        <div class="floorplan-wrapper floorplan-wrapper-3">
+                            <a class="fancybox" ng-href="{{slide.imgs[0]}}"><img class="img-responsive" ng-src="{{slide.imgs[2]}}"></a>
+                        </div>
+                    </div>
+                </slide>     
+            </carousel>
+        </div>
+    </div>
+</div>

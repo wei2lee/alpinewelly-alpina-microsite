@@ -1,4 +1,5 @@
-function MainCtrl($timeout) {
+function MainCtrl($timeout, $state, $rootScope) {
+    $rootScope.$state = $state;
     $(document).ready(function () {
         $timeout(function () {
             console.log($('.fancybox').length);
@@ -7,14 +8,79 @@ function MainCtrl($timeout) {
     });
 }
 
+function IntroCtrl() {
+    $(document).ready(function() {
+        var videobackground = new $.backgroundVideo($('#background-video'), {
+          "align": "centerXY",
+          "width": 1920,
+          "height": 1080,
+          "path": "assets/video/",
+          "filename": "Alpina Website Intro",
+          "types": ["mp4","ogg","webm"],
+          "preload": true,
+          "autoplay": true,
+          "loop": false
+        });
+        
+//         $('#background-video').get(0).addEventListener("ended", function () {
+//             console.log("the video is end");
+//             this.stop();
+//         }, false);
+    });
+}
+
 function HomeCtrl($timeout, $element) {
     
+}
+
+function ProjectFloorplanCtrl($timeout, $scope) {
+    var _this = this;
+    var slides = this.slides = [];
+    for(i = 0 ; i < 5 ; i++) {
+        var typechar = String.fromCharCode(97 + i);
+        
+        var slide = {
+            imgs: [
+                'img/project-floorplan-type-'+typechar+'-floorplan-01@2x.png',
+                'img/project-floorplan-type-'+typechar+'-floorplan-02@2x.png',
+                'img/project-floorplan-type-'+typechar+'-floorplan-03@2x.png'
+            ],
+            sidebarimg:'img/project-floorplan-type-'+typechar+'-title@2x.png',
+            type:String.fromCharCode(65 + i)
+        };
+        slides.push(slide);
+    }
+    this.activeSlide = 0;
+    
+    this.sidebarimg = function() {
+        var i = 0;
+        for(k in slides) {
+            if(slides[k].active) {
+                i = k;
+                break;   
+            }
+        }
+        return slides[i].sidebarimg;   
+    }
+    
+//    $('.carousel').carousel()
+    
+    $(document).ready(function() {
+       $('.fancybox').fancybox(); 
+    });
+    
+    this.selectSlide = function(index) {
+        for(i = 0 ; i < slides.length ; i++) {
+            slides[i].active = i == index;
+        }
+    }
 }
 
 function LocationCtrl($timeout, $element) {
     var _this = this;
     _this.tabIndex = 0;
 }
+
 
 function RegistrationCtrl($timeout, $element) {
     $(document).ready(function () {
@@ -169,7 +235,9 @@ function RegistrationCtrl($timeout, $element) {
 
 
 angular.module('alpina')
-    .controller('HomeCtrl', HomeCtrl)
     .controller('MainCtrl', MainCtrl)
+    .controller('IntroCtrl', IntroCtrl)
+    .controller('HomeCtrl', HomeCtrl)
+    .controller('ProjectFloorplanCtrl', ProjectFloorplanCtrl)
     .controller('LocationCtrl', LocationCtrl)
     .controller('RegistrationCtrl', RegistrationCtrl);

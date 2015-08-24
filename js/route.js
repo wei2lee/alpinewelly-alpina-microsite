@@ -1,11 +1,15 @@
 function config($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/register');
+    $urlRouterProvider.otherwise('/home');
     $stateProvider
         .state('index', {
             abstract: true,
             url: "/",
             templateUrl: "views/common/content.html"
         })
+        .state('intro', {
+            url: "/intro",
+            templateUrl: "views/intro.html"
+        })    
         .state('index.home', {
             url: "home",
             templateUrl: "views/home.html"

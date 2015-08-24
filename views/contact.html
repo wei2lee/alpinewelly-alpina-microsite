@@ -2,31 +2,41 @@
 <div id="footer-wrapper" ng-include="'views/common/footer.html'" class="animated fadeInUp"></div>
 <div class="page-content-no-padding animated fadeInRight content-sidebar-wrapper" id="contact" ng-controller="LocationCtrl as controller">
     <div id="map-google" class="content-left-content">
-        <iframe id='map' width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDwzM42cKPYaZ-NkqPkiVsu1_VJ7UIcHfg&q=3.1349111,101.5371">
-        </iframe>
+        <div class="responsive-container">
+            <canvas></canvas>
+            <div class="responsive-content">
+                <iframe id='map' width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDwzM42cKPYaZ-NkqPkiVsu1_VJ7UIcHfg&q=3.063303, 101.697018">
+                </iframe>
+            </div>
+        </div>
     </div>
     <div class="content-right-sidebar">
-        <h7>ACTUAL SHOW HOUSE</h7>
+        <h7> </h7>
         <div class="coordinate">
             <div class="title">GPS coordinates</div>
-            <div class="desc">3°8’5.68”N, 101°32’13.56”E</div>
+            <div class="desc">3.063303, 101.697018</div>
         </div>
+<!--
         <address>
             <span>Jalan 3D, Kampung Baru Subang,</span>
             <span>40150 Shah Alam,</span>
             <span>Selangor Darul Ehsan.</span>
         </address>
+-->
+<!--
         <div class="openhour">Open Daily from 10am to 6pm</div>
         <div class="tel"><a href="tel:60390548533">tel: 603. 9054. 8533</a></div>
-        <hr>
-        <div>
+        <div class="separator"><hr></div>
+-->
+        <div class="developer">
             <small>Landowner &amp; developer:</small>
             <address>
-                <span>Alpine Welly Sdn. Bhd (825949-V)</span>
+                <span>Alpine Welly Sdn. Bhd <small>(825949-V)</small></span>
                 <span>B-3A-5, Endah Promenade,</span>
                 <span>No.5, Jalan 3/149E, </span>
-                <span>Taman Sri Endah,</span>
+                <span>Taman Sri Endah, Sri Petaling</span>
                 <span>57000 Kuala Lumpur</span>
+                <div><a href="tel:60390548533">tel: 603. 9054. 8533</a></div>
             </address>
         </div>
         
