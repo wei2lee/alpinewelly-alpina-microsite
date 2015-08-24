@@ -1,5 +1,5 @@
 function config($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/intro');
     $stateProvider
         .state('index', {
             abstract: true,
